@@ -1,0 +1,10 @@
+AMR: Advanced Movie Recommender 🎬🤖AMR is a full-stack Semantic Search Engine that allows users to find movies based on descriptions, moods, or specific plot scenarios rather than just titles. By leveraging Vector Embeddings and Natural Language Processing (NLP), AMR understands the "vibe" of your search.
+
+🚀 Key FeaturesSemantic Retrieval: Search using natural language (e.g., "movies where space feels lonely" or "intense psychological thrillers with a twist").AI-Powered Embeddings: Uses the all-MiniLM-L6-v2 Transformer model to map text into 384-dimensional vector space.Vector Similarity Search: Implements Cosine Similarity to rank movies by mathematical relevance.Data Richness: Integrated with the TMDB API for real-time metadata, posters, and trending movie ingestion.Quality Filtering: Built-in Similarity Threshold to ensure only relevant results are displayed.
+
+🛠️ Tech StackFrontendReact.js:
+For a responsive and dynamic user interface.Axios: For seamless API communication with the backend.Tailwind CSS / CSS Modules: (Insert your styling choice here) for modern UI.BackendNode.js & Express: Handling API routing and AI inference logic.Mongoose: Modeling movie data and vector storage in MongoDB.Xenova/Transformers.js: Running the AI model locally on the server (no expensive API keys needed).DatabaseMongoDB: Storing movie metadata and high-dimensional vectors.🧠 How It WorksIngestion: The system fetches popular/custom movies from TMDB.Vectorization: Each movie's overview and keywords are combined and passed through a Transformer model to generate a Vector Embedding.The Query: When a user types a search, that text is also converted into a vector.
+
+Mathematical Matching: The backend calculates the angle between the user's vector and every movie vector using the Cosine Similarity formula:
+$$Similarity = \cos(\theta) = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \|\mathbf{B}\|}$$
+Ranking: Movies are filtered by a threshold (e.g., > 0.45) and sorted in descending order of relevance.
